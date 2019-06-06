@@ -6,12 +6,12 @@ class Ball
 			vx=0;
 		if(vy === undefined)
 			vy=0;
-		this.radius = r;
-		this.density = d; // g/m3
-		this.mass = this.density*(4/3*PI*this.radius*this.radius*this.radius);
+		this.radius = r; //in pixels = mm
+		this.density = d; // g/mm3
+		this.mass = this.density*(4/3*PI*this.radius*this.radius*this.radius); //grams
 		this.position = createVector(x,y);
 		this.velocity = createVector(vx,vy);
-		this.acceleration = createVector(0,0.01*this.mass/1000);
+		this.acceleration = createVector(0,this.mass*0.00098);
 		this.friction = createVector(-sign(vx)*0.01,0);
 		this.c = color(random(255),random(255),random(255));
 		this.angle = 0; //degrees
